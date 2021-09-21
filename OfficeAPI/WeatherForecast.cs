@@ -1,6 +1,6 @@
 using System;
 
-namespace OfficeControllerAPI
+namespace OfficeAPI
 {
     public class WeatherForecast
     {

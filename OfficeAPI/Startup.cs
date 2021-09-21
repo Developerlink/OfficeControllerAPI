@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using OfficeControllerDataLibrary.Interfaces;
 using OfficeControllerDataLibrary.Repositories;
 
-namespace OfficeControllerAPI
+namespace OfficeAPI
 {
     public class Startup
     {
@@ -30,7 +30,6 @@ namespace OfficeControllerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
             var connectionString = Configuration["ConnectionStrings:officeControllerConnectionString"];
@@ -61,7 +60,7 @@ namespace OfficeControllerAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OfficeControllerAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OfficeAPI v1"));
             }
 
             app.UseHttpsRedirection();

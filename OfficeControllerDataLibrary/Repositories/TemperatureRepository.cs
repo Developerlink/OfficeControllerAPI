@@ -37,7 +37,7 @@ namespace OfficeControllerDataLibrary.Repositories
         {
             try
             {
-                ICollection<Temperature> temperatures = _officeControllerDbContext.Temperature.Include(t => t.TempScale).Include(t => t.Room).ToList();
+                ICollection<Temperature> temperatures = _officeControllerDbContext.Temperature.Include(t => t.TempScale).Include(t => t.Room).OrderByDescending(t => t.Id).ToList();
                 return temperatures;
             }
             catch (Exception e)

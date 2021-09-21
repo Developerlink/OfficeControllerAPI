@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OfficeControllerDataLibrary.Interfaces;
+using OfficeControllerModelLibrary.Dto;
 using OfficeControllerModelLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OfficeControllerAPI.Controllers
+namespace OfficeAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -38,7 +39,7 @@ namespace OfficeControllerAPI.Controllers
             }
 
             return Ok(temperatures);
-        }        
+        }
 
         // POST <TemperaturesController>
         [HttpPost]
@@ -63,9 +64,17 @@ namespace OfficeControllerAPI.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetTemperatures", new { id = temperature.Id }, temperature);
+            var temperatureDto = new TemperatureDto()
+            {
+                Id = temperature.Id,
+                Value = temperature.Value,
+                RoomId = temperature.RoomId,
+                TempScaleId = temperature.TempScaleId
+            };
+
+            return CreatedAtAction("GetTemperatures", new { id = temperatureDto.Id }, temperatureDto);
         }
 
-        
+
     }
 }

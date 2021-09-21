@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OfficeControllerModelLibrary.Models
 {
-public    class Temperature
+    public class Temperature
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
